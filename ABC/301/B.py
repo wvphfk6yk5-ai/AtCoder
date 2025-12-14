@@ -9,22 +9,16 @@ def arr(a,Max,Min):
       continue
     
     if a[i] < a[i+1]:
-      add = []
-      for da in range(a[i]+1,a[i+1]):
-        add.append(da)
-      na = a[:i+1]+add+a[i+1:]
-      Max=len(na)-1
       Min=i+a[i+1]-a[i]-1
-      return arr(na,Max,Min)
+      a[i+1:i+1] = list(x for x in range(a[i]+1,a[i+1]))
+      Max=len(a)-1
+      return arr(a,Max,Min)
     
     if a[i] > a[i+1]:
-      add = []
-      for da in range(a[i]-1,a[i+1],-1):
-        add.append(da)
-      na = a[:i+1]+add+a[i+1:]
-      Max=len(na)-1
       Min=i-a[i+1]+a[i]-1
-      return arr(na,Max,Min)
+      a[i+1:i+1] = list(x for x in range(a[i]-1,a[i+1],-1))
+      Max=len(a)-1
+      return arr(a,Max,Min)
   
   return a
 
