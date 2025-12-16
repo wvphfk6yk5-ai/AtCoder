@@ -14,10 +14,12 @@ for ds in s:
     print("No")
     exit()
   
+"""  
   if h-(n-cnt) >= 0:
     print("Yes")
     exit()
-  
+"""
+#gridをlistからsetで持つことでTLE解消、枝切りいらん
   
   r[0] += shift[ds][0]
   r[1] += shift[ds][1]
